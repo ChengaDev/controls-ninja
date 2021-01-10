@@ -1,0 +1,16 @@
+.nj-dropdown {
+    cursor: pointer;
+    user-select: none;
+}
+
+.nj-dropdown.button {
+    border: 1px solid #333;
+}
+
+.nj-dropdown.menu {
+    border: 1px solid #333;
+}
+
+.rounded {
+    border-radius: 5px;
+}
