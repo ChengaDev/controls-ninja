@@ -20,8 +20,9 @@ const DropDownMenu = (props: DropDownMenuProps) => {
     return (
         <div className="nj-dropdown menu rounded">
             {hasOptions &&
-                options?.map((option) => (
+                options?.map((option, index) => (
                     <DropDownOption
+                        key={index}
                         renderItem={props.renderItem}
                         onChange={props.onChange}
                         option={option}

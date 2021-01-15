@@ -5,7 +5,8 @@
 import React, { useRef } from "react";
 import Option from "../../models/Option";
 import "../../styles/DropDownOption.css";
-import useEnterKeyPress from "../../hooks/useEnterKeyPress";
+import keyCodes from "../../constants/keyCodes";
+import useKeyDownEvent from "../../hooks/useKeyDownEvent";
 
 export type DropDownOptionProps = {
     option: Option;
@@ -16,7 +17,9 @@ export type DropDownOptionProps = {
 const DropDownOption = (props: DropDownOptionProps) => {
     const optionRef = useRef();
 
-    useEnterKeyPress(optionRef, () => alert("enter clicked"));
+    useKeyDownEvent(optionRef, [keyCodes.ENTER, keyCodes.SPACE], () => {
+        optionRef.current.click();
+    });
 
     return (
         <div

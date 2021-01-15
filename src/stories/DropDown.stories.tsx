@@ -21,6 +21,6 @@ BasicRender.args = {
     nonSelectionText: "Select an option",
     options,
     onChange: (e, option) => {
-        alert(option.label);
+        console.log(option.label);
     }
 };

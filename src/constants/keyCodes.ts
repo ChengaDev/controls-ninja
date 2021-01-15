@@ -1,4 +1,8 @@
 export default {
-    ENTER_KEY_CODE: 13,
-    SPACE_KEY_CODE: 32
+    ENTER: 13,
+    SPACE: 32,
+    TAB: 9,
+    DOWN_ARROW: 40,
+    UP_ARROW: 38,
+    ESCAPE: 27
 };
