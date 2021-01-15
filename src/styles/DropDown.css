@@ -3,8 +3,9 @@
     user-select: none;
 }
 
-.nj-dropdown.button {
+.nj-dropdown-button.button {
     border: 1px solid #333;
+    padding: 8px;
 }
 
 .nj-dropdown.menu {

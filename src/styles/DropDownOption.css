@@ -1,0 +1,7 @@
+.nj-dropdown-option {
+    padding: 8px;
+}
+
+.nj-dropdown-option:hover {
+    background-color: blue;
+}

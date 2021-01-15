@@ -13,7 +13,7 @@ export type DropDownProps = {
     nonSelectionText: String;
     options: Option[];
     selectedOption?: Option;
-    renderItem?: () => JSX.Element;
+    renderItem?: (option: Option) => JSX.Element;
     onChange?: (e: any, option: Option) => void;
     width?: String;
 };
@@ -31,13 +31,18 @@ const DropDown = (props: DropDownProps) => {
     return (
         <>
             <div
-                className="nj-dropdown button rounded"
+                className="nj-dropdown-button button rounded"
+                tabIndex="0"
                 onClick={() => setShowDropDown(!showDropDown)}
             >
                 {selectedOption ? selectedOption.label : props.nonSelectionText}
             </div>
             {showDropDown && (
-                <DropDownMenu onChange={onChange} options={props.options} />
+                <DropDownMenu
+                    renderItem={props.renderItem}
+                    onChange={onChange}
+                    options={props.options}
+                />
             )}
         </>
     );
