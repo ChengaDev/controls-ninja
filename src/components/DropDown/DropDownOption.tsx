@@ -12,6 +12,7 @@ export type DropDownOptionProps = {
     option: Option;
     onChange?: (event: any, option: Option) => void;
     renderItem?: (option: Option) => JSX.Element;
+    isSelected: bool;
 };
 
 const DropDownOption = (props: DropDownOptionProps) => {
@@ -24,7 +25,9 @@ const DropDownOption = (props: DropDownOptionProps) => {
     return (
         <div
             onClick={(event: any) => props.onChange?.(event, props.option)}
-            className="nj-dropdown-option"
+            className={`nj-dropdown-option ${
+                props.isSelected ? "selected" : ""
+            }`}
             ref={optionRef}
             tabIndex="0"
         >

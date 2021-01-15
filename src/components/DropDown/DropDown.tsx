@@ -8,7 +8,6 @@ import DropDownMenu from "./DropDownMenu";
 import Option from "../../models/Option";
 import keyCodes from "../../constants/keyCodes";
 import useKeyDownEvent from "../../hooks/useKeyDownEvent";
-
 import "../../styles/DropDown.css";
 
 export type DropDownProps = {
@@ -58,9 +57,11 @@ const DropDown = (props: DropDownProps) => {
                         ? props.renderItem(option)
                         : selectedOption.label
                     : props.nonSelectionText}
+                <i className="fa fa-play" />
             </div>
             {showDropDown && (
                 <DropDownMenu
+                    selectedOption={selectedOption}
                     renderItem={props.renderItem}
                     onChange={onChange}
                     options={props.options}

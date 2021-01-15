@@ -6,7 +6,9 @@ import DropDown, { DropDownProps } from "../components/DropDown/DropDown";
 
 const options = [
     { label: "Option1", value: "1" },
-    { label: "Option2", value: "2" }
+    { label: "Option2", value: "2" },
+    { label: "Option3", value: "3" },
+    { label: "Option4", value: "4" }
 ];
 
 export default {

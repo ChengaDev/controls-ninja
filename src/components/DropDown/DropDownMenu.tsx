@@ -9,6 +9,7 @@ import Option from "../../models/Option";
 
 type DropDownMenuProps = {
     options?: Option[];
+    selectedOption?: Option;
     onChange?: (e: any, option: Option) => void;
     renderItem?: (option: Option) => JSX.Element;
 };
@@ -26,6 +27,9 @@ const DropDownMenu = (props: DropDownMenuProps) => {
                         renderItem={props.renderItem}
                         onChange={props.onChange}
                         option={option}
+                        isSelected={
+                            option.value === props.selectedOption?.value
+                        }
                     />
                 ))}
         </div>

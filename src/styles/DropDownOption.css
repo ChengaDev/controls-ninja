@@ -1,7 +1,18 @@
 .nj-dropdown-option {
     padding: 8px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+}
+
+.nj-dropdown-option.selected {
+    background-color: rgb(219, 244, 255);
 }
 
 .nj-dropdown-option:hover {
-    background-color: blue;
+    background-color: rgb(219, 244, 255);
+}
+
+.nj-dropdown-option:focus {
+    background-color: rgb(219, 244, 255);
 }

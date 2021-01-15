@@ -1,11 +1,13 @@
-.nj-dropdown {
-    cursor: pointer;
-    user-select: none;
-}
-
 .nj-dropdown-button.button {
     border: 1px solid #333;
     padding: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+}
+
+.nj-dropdown-button.button:hover {
+    background-color: lightgray;
 }
 
 .nj-dropdown.menu {
