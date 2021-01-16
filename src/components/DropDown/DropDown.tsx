@@ -17,14 +17,15 @@ export type DropDownProps = {
     renderItem?: (option: Option) => JSX.Element;
     onChange?: (e: any, option: Option) => void;
     width?: String;
+    label?: String;
 };
 
 const DropDown = (props: DropDownProps) => {
     const dropdownButtonRef = useRef();
     const containerRef = useRef();
 
-    const [showDropDown, setShowDropDown] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [showDropDown, setShowDropDown] = useState<boolean>(false);
+    const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
     const onChange = (event: any, option: Option) => {
         setShowDropDown(false);
@@ -48,13 +49,13 @@ const DropDown = (props: DropDownProps) => {
         <div ref={containerRef}>
             <div
                 className="nj-dropdown-button button rounded"
-                tabIndex="0"
+                tabIndex={0}
                 onClick={() => setShowDropDown(!showDropDown)}
                 ref={dropdownButtonRef}
             >
                 {selectedOption
                     ? props.renderItem
-                        ? props.renderItem(option)
+                        ? props.renderItem(selectedOption)
                         : selectedOption.label
                     : props.nonSelectionText}
                 <i className="fa fa-play" />

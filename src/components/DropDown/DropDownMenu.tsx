@@ -9,7 +9,7 @@ import Option from "../../models/Option";
 
 type DropDownMenuProps = {
     options?: Option[];
-    selectedOption?: Option;
+    selectedOption?: Option | null;
     onChange?: (e: any, option: Option) => void;
     renderItem?: (option: Option) => JSX.Element;
 };

@@ -12,7 +12,7 @@ export type DropDownOptionProps = {
     option: Option;
     onChange?: (event: any, option: Option) => void;
     renderItem?: (option: Option) => JSX.Element;
-    isSelected: bool;
+    isSelected: boolean;
 };
 
 const DropDownOption = (props: DropDownOptionProps) => {
@@ -29,9 +29,9 @@ const DropDownOption = (props: DropDownOptionProps) => {
                 props.isSelected ? "selected" : ""
             }`}
             ref={optionRef}
-            tabIndex="0"
+            tabIndex={0}
         >
-            {props.renderItem ? props.renderItem(option) : props.option.label}
+            {props.renderItem ? props.renderItem(props.option) : props.option.label}
         </div>
     );
 };
