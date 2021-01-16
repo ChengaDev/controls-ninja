@@ -11,13 +11,16 @@ import useKeyDownEvent from "../../hooks/useKeyDownEvent";
 import "../../styles/DropDown.css";
 
 export type DropDownProps = {
-    nonSelectionText: String;
+    id: string;
+    nonSelectionText: string;
     options: Option[];
     selectedOption?: Option;
     renderItem?: (option: Option) => JSX.Element;
     onChange?: (e: any, option: Option) => void;
-    width?: String;
-    label?: String;
+    width?: string;
+    label?: string;
+    animated: boolean;
+    isRequired: boolean;
 };
 
 const DropDown = (props: DropDownProps) => {
@@ -36,19 +39,21 @@ const DropDown = (props: DropDownProps) => {
     useKeyDownEvent(
         dropdownButtonRef,
         [keyCodes.ENTER, keyCodes.SPACE, keyCodes.DOWN_ARROW],
-        (event) => {
+        () => {
             setShowDropDown(!showDropDown);
         }
     );
 
-    useKeyDownEvent(containerRef, [keyCodes.ESCAPE], (event) => {
+    useKeyDownEvent(containerRef, [keyCodes.ESCAPE], () => {
         setShowDropDown(false);
     });
 
     return (
         <div ref={containerRef}>
+            {props.label && <div className="nj-dropdown-label"><label htmlFor={props.id}>{props.label} {props.isRequired && "*"}</label></div>}
             <div
-                className="nj-dropdown-button button rounded"
+                id={props.id}
+                className={`nj-dropdown-button button rounded ${showDropDown ? 'open' : ''}`}
                 tabIndex={0}
                 onClick={() => setShowDropDown(!showDropDown)}
                 ref={dropdownButtonRef}
@@ -60,8 +65,9 @@ const DropDown = (props: DropDownProps) => {
                     : props.nonSelectionText}
                 <i className="fa fa-play" />
             </div>
-            {showDropDown && (
+            {(props.animated || showDropDown) && (
                 <DropDownMenu
+                    cssClass={`${showDropDown ? 'open' : ''}`}
                     selectedOption={selectedOption}
                     renderItem={props.renderItem}
                     onChange={onChange}

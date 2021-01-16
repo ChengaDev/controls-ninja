@@ -1,3 +1,13 @@
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nj-dropdown-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .nj-dropdown-button.button {
     border: 1px solid #333;
     padding: 8px;
@@ -6,8 +16,10 @@
     font-size: 16px;
 }
 
-.nj-dropdown-button.button:hover {
-    background-color: lightgray;
+.nj-dropdown-button.button:hover,
+.nj-dropdown-button.open {
+    background-color: #eaeaea;
+    box-shadow: 0 0 4px grey;
 }
 
 .nj-dropdown.menu {

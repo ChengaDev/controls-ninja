@@ -3,6 +3,7 @@
     cursor: pointer;
     user-select: none;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 .nj-dropdown-option.selected {

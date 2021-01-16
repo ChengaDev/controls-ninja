@@ -7,11 +7,14 @@ import DropDownOption from "./DropDownOption";
 
 import Option from "../../models/Option";
 
+import '../../styles/DropDownMenu.css';
+
 type DropDownMenuProps = {
     options?: Option[];
     selectedOption?: Option | null;
     onChange?: (e: any, option: Option) => void;
     renderItem?: (option: Option) => JSX.Element;
+    cssClass?: string | null;
 };
 
 const DropDownMenu = (props: DropDownMenuProps) => {
@@ -19,7 +22,7 @@ const DropDownMenu = (props: DropDownMenuProps) => {
     const hasOptions = options?.length || 0 > 0;
 
     return (
-        <div className="nj-dropdown menu rounded">
+        <div className={`nj-dropdown menu rounded ${props.cssClass}`}>
             {hasOptions &&
                 options?.map((option, index) => (
                     <DropDownOption

@@ -1,0 +1,10 @@
+.nj-dropdown.menu {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+.nj-dropdown.menu.open {
+    visibility: visible;
+    opacity: 1;
+}

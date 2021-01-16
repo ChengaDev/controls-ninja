@@ -22,7 +22,44 @@ export const BasicRender = DropDownStory.bind({});
 BasicRender.args = {
     nonSelectionText: "Select an option",
     options,
-    onChange: (e, option) => {
+    onChange: (event, option) => {
         console.log(option.label);
-    }
+    },
+    animated: false
 };
+
+export const Animated = DropDownStory.bind({});
+Animated.args = {
+    nonSelectionText: "Select an option",
+    options,
+    onChange: (event, option) => {
+        console.log(option.label);
+    },
+    animated: true
+};
+
+export const HasLabel = DropDownStory.bind({});
+HasLabel.args = {
+    nonSelectionText: "Select an option",
+    options,
+    onChange: (event, option) => {
+        console.log(option.label);
+    },
+    animated: true,
+    label: 'Dropdown label',
+    id: 'myDropdown'
+};
+
+export const IsRequired = DropDownStory.bind({});
+IsRequired.args = {
+    nonSelectionText: "Select an option",
+    options,
+    onChange: (event, option) => {
+        console.log(option.label);
+    },
+    animated: true,
+    label: 'Dropdown label',
+    id: 'myDropdown',
+    isRequired: true
+};
+

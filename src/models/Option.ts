@@ -1,4 +1,4 @@
 export default interface {
-    value: String | Number,
-    label: String
+    value: string | number,
+    label: string
 }
