@@ -69,6 +69,8 @@ const DropDown = (props: DropDownProps) => {
                 tabIndex={0}
                 onClick={() => setShowDropDown(!showDropDown)}
                 ref={dropdownButtonRef}
+                aria-expanded={showDropDown}
+                aria-haspopup="true"
             >
                 {selectedOption
                     ? props.renderItem
@@ -81,6 +83,7 @@ const DropDown = (props: DropDownProps) => {
             </div>
             {(props.animated || showDropDown) && (
                 <DropDownMenu
+                    dropDownId={props.id}
                     cssClass={`${showDropDown ? "open" : ""}`}
                     selectedOption={selectedOption}
                     renderItem={props.renderItem}

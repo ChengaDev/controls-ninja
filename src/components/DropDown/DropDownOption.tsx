@@ -31,8 +31,11 @@ const DropDownOption = (props: DropDownOptionProps) => {
             ref={optionRef}
             tabIndex={0}
             aria-label={props.option.label}
+            role="menuitem"
         >
-            {props.renderItem ? props.renderItem(props.option) : props.option.label}
+            {props.renderItem
+                ? props.renderItem(props.option)
+                : props.option.label}
         </div>
     );
 };
