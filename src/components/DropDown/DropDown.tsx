@@ -8,6 +8,8 @@ import DropDownMenu from "./DropDownMenu";
 import Option from "../../models/Option";
 import keyCodes from "../../constants/keyCodes";
 import useKeyDownEvent from "../../hooks/useKeyDownEvent";
+import { KeyboardArrowDown, KeyboardArrowUp } from "@material-ui/icons";
+
 import "../../styles/DropDown.css";
 
 export type DropDownProps = {
@@ -28,7 +30,9 @@ const DropDown = (props: DropDownProps) => {
     const containerRef = useRef();
 
     const [showDropDown, setShowDropDown] = useState<boolean>(false);
-    const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+    const [selectedOption, setSelectedOption] = useState<Option | null>(
+        props.selectedOption
+    );
 
     const onChange = (event: any, option: Option) => {
         setShowDropDown(false);
@@ -50,10 +54,18 @@ const DropDown = (props: DropDownProps) => {
 
     return (
         <div ref={containerRef}>
-            {props.label && <div className="nj-dropdown-label"><label htmlFor={props.id}>{props.label} {props.isRequired && "*"}</label></div>}
+            {props.label && (
+                <div className="nj-dropdown-label">
+                    <label htmlFor={props.id}>
+                        {props.label} {props.isRequired && "*"}
+                    </label>
+                </div>
+            )}
             <div
                 id={props.id}
-                className={`nj-dropdown-button button rounded ${showDropDown ? 'open' : ''}`}
+                className={`nj-dropdown-button button rounded ${
+                    showDropDown ? "open" : ""
+                }`}
                 tabIndex={0}
                 onClick={() => setShowDropDown(!showDropDown)}
                 ref={dropdownButtonRef}
@@ -63,11 +75,13 @@ const DropDown = (props: DropDownProps) => {
                         ? props.renderItem(selectedOption)
                         : selectedOption.label
                     : props.nonSelectionText}
-                <i className="fa fa-play" />
+                <div className="nj-dropdown-caret">
+                    {showDropDown ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+                </div>
             </div>
             {(props.animated || showDropDown) && (
                 <DropDownMenu
-                    cssClass={`${showDropDown ? 'open' : ''}`}
+                    cssClass={`${showDropDown ? "open" : ""}`}
                     selectedOption={selectedOption}
                     renderItem={props.renderItem}
                     onChange={onChange}

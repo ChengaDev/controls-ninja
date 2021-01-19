@@ -46,8 +46,21 @@ HasLabel.args = {
         console.log(option.label);
     },
     animated: true,
-    label: 'Dropdown label',
-    id: 'myDropdown'
+    label: "Dropdown label",
+    id: "myDropdown"
+};
+
+export const HasSelectedOption = DropDownStory.bind({});
+HasSelectedOption.args = {
+    nonSelectionText: "Select an option",
+    options,
+    selectedOption: options[0],
+    onChange: (event, option) => {
+        console.log(option.label);
+    },
+    animated: true,
+    label: "Dropdown label",
+    id: "myDropdown"
 };
 
 export const IsRequired = DropDownStory.bind({});
@@ -58,8 +71,7 @@ IsRequired.args = {
         console.log(option.label);
     },
     animated: true,
-    label: 'Dropdown label',
-    id: 'myDropdown',
+    label: "Dropdown label",
+    id: "myDropdown",
     isRequired: true
 };
-
